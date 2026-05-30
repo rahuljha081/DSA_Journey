@@ -1,0 +1,20 @@
+name: Sync LeetCode to GitHub
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 0 * * *'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Sync Solutions & Update README
+        uses: Baoas/leetcode-sync@v1.2.0
+        with:
+          github-token: ${{ secrets.DSA_GITHUB_TOKEN }}
+          leetcode-session: ${{ secrets.DSA_SESSION }}
+          leetcode-csrf-token: ${{ secrets.LEETCODE_CSRF_CODE }}
