@@ -12,9 +12,10 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v3
 
-      - name: Sync Solutions & Update README
-        uses: baaoas/leetcode-sync@v1.2.0
+      - name: Sync Solutions
+        uses: joshcai/leetcode-sync@v1.7.0
         with:
           github-token: ${{ secrets.DSA_GITHUB_TOKEN }}
           leetcode-session: ${{ secrets.DSA_SESSION }}
           leetcode-csrf-token: ${{ secrets.LEETCODE_CSRF_CODE }}
+          destination-folder: 'Solutions'
