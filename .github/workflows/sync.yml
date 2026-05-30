@@ -9,13 +9,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v3
-
-      - name: Sync Solutions
-        uses: charlesw0411/leetcode-sync@v1.0.4
+      - name: Run LeetCode Synchronizer
+        uses: dos-m0nk3y/LeetCode-Synchronizer@v1.1.0
         with:
-          github-token: ${{ secrets.DSA_GITHUB_TOKEN }}
-          leetcode-session: ${{ secrets.DSA_SESSION }}
-          leetcode-csrf-token: ${{ secrets.LEETCODE_CSRF_CODE }}
-          destination-folder: 'Solutions'
+          GITHUB_TOKEN: ${{ github.token }}
+          LEETCODE_SESSION: ${{ secrets.DSA_SESSION }}
+          LEETCODE_CSRF_TOKEN: ${{ secrets.LEETCODE_CSRF_CODE }}
